@@ -1,14 +1,13 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FinishFlag : MonoBehaviour
 {
-    
-    void Start()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
-    }
-    void Update()
-    {
-        
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            FindAnyObjectByType<GameSession>().LoadNextLevel();
+        }
     }
 }

@@ -7,6 +7,7 @@ public class GameSession : MonoBehaviour
 {
     [SerializeField] int numOfLives = 3;
     [SerializeField] TextMeshProUGUI livesText;
+    [SerializeField] int currentSceneIndex;
 
     private void Awake()
     {
@@ -23,7 +24,7 @@ public class GameSession : MonoBehaviour
     }
     private void Start()
     {
-        livesText.text = "Lives: " + numOfLives;        
+        livesText.text = "Lives: " + numOfLives;
     }
 
     public void PlayerDeath()
@@ -34,6 +35,7 @@ public class GameSession : MonoBehaviour
         }
         else
         {
+            SceneManager.LoadScene("GameOver");
             ResetGameSession();
         }
     }
@@ -48,6 +50,12 @@ public class GameSession : MonoBehaviour
     private void ResetGameSession()
     {
         Destroy(gameObject);
-        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void LoadNextLevel()
+    {
+        currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        currentSceneIndex++;
+        SceneManager.LoadScene(currentSceneIndex);
     }
 }
