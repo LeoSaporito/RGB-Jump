@@ -16,15 +16,26 @@ public class PlatformSwitcher : MonoBehaviour
     void Start()
     {
         playerColor = FindFirstObjectByType<PlayerColor>();
-    }
 
+        SetPlatformsToInactiveOnStart();
+    }
+    void SetPlatformsToInactiveOnStart()
+    {
+        redActive.SetActive(false);
+        redInactive.SetActive(true);
+
+        greenActive.SetActive(false);
+        greenInactive.SetActive(true);
+
+        blueActive.SetActive(false);
+        blueInactive.SetActive(true);
+    }
     void Update()
     {
         RedSwitcher();
         GreenSwitcher();
         BlueSwitcher();
     }
-
     void RedSwitcher()
     {
         if (playerColor.GetRedBool())

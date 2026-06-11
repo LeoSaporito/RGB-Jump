@@ -4,10 +4,14 @@ using UnityEngine.Tilemaps;
 public class SpikeCollision : MonoBehaviour
 {
     PlayerMovement playerMovement;
+    
     TilemapCollider2D _tc;
+
+
     void Start()
     {
         playerMovement = FindFirstObjectByType<PlayerMovement>();
+
         _tc = GetComponent<TilemapCollider2D>();
     }
 
