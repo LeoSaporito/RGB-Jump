@@ -5,35 +5,53 @@ using UnityEngine.SceneManagement;
 
 public class FinishFlag : MonoBehaviour
 {
-    [SerializeField] GameObject hatFoundSO;
-    HatFoundSO hatFound;
+    [SerializeField] bool hatLevel;
+    [SerializeField] float delay;
+    [SerializeField] Animator playerAnimator;
+    [SerializeField] GameObject playerCowboyHat;
+    [SerializeField] GameObject levelCowboyHat;
+    [SerializeField] GameObject hatFoundText;
+    [SerializeField] GameObject wrongHatText;
 
-    Coroutine hatFoundCoroutine;
+    Coroutine cowboyHatFoundCoroutine;
+
+    bool isHatAnimation;
+    private void Start()
+    {
+        isHatAnimation = false;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            if (hatFoundSO != null && hatFoundCoroutine == null)
+            if (cowboyHatFoundCoroutine == null && hatLevel)
             {
-                hatFoundCoroutine = StartCoroutine(HatFound());
+                PlayerWearingCowboyHat();
+                cowboyHatFoundCoroutine = StartCoroutine(CowboyHatFound());
             }
             else
-            { 
-                FindAnyObjectByType<GameSession>().LoadNextLevel();            
-            }
+            {
+                FindAnyObjectByType<GameSession>().LoadNextLevel();
+            }          
         }
     }
-
-    IEnumerator HatFound()
+    void PlayerWearingCowboyHat()
     {
-        hatFound.GetPlayer().GetComponent<SpriteRenderer>().enabled = false;
-        hatFound.GetHatFound().SetActive(true);
-        yield return new WaitForSeconds(2f);
-        
-        hatFound.GetHatFound().SetActive(false);
-        hatFound.GetNotYourHat().SetActive(true);
-        yield return new WaitForSeconds(2f);
-    
+        isHatAnimation = true;
+        playerCowboyHat.SetActive(true);
+        levelCowboyHat.SetActive(false);
+    }
+    IEnumerator CowboyHatFound()
+    {
+        hatFoundText.SetActive(true);
+        playerAnimator.SetBool("foundCowboyHat", true);
+        yield return new WaitForSeconds(delay);
+
+        wrongHatText.SetActive(true);
+        playerAnimator.SetBool("wrongHat", true);
+        yield return new WaitForSeconds(delay);
+
         FindAnyObjectByType<GameSession>().LoadNextLevel();
     }
+    public bool GetIsHatAnimationBool() { return isHatAnimation; }
 }

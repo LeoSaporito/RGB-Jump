@@ -19,18 +19,21 @@ public class PlayerMovement : MonoBehaviour
 
     bool isAlive;
 
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         a = GetComponent<Animator>();
         
         isAlive = true;
+
         a.SetBool("isAlive", true);
     }
 
     void Update()
     {
         if (!isAlive) { return; }
+        if (FindAnyObjectByType<FinishFlag>().GetIsHatAnimationBool()) { return; }
 
         Movement();
         FlipDirection();
@@ -51,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
     void OnJump(InputValue value)
     {
         if(!isAlive) { return; }
+        if (FindAnyObjectByType<FinishFlag>().GetIsHatAnimationBool()) { return; }
 
         if (value.isPressed && isGrounded)
         {

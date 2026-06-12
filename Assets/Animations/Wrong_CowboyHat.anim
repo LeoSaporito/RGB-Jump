@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Alive
+  m_Name: Wrong_CowboyHat
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,7 +21,7 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -5697667304131817244, guid: 43a5322de232c2f45bf8743ba9371170, type: 3}
+      value: {fileID: -1818206008291929930, guid: fee9daff4dd80fe4c9c5093df8db9b0c, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -44,7 +44,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -5697667304131817244, guid: 43a5322de232c2f45bf8743ba9371170, type: 3}
+    - {fileID: -1818206008291929930, guid: fee9daff4dd80fe4c9c5093df8db9b0c, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

@@ -79,8 +79,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -311333163
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 1805158079502305607, guid: 250300857e83181478cf601a92cede3a, type: 3}
@@ -151,3 +151,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e6e1154c8e7a34fbdecb01800b0d7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FinishFlag
+  hatLevel: 1
+  delay: 2
+  playerAnimator: {fileID: 0}
+  playerCowboyHat: {fileID: 0}
+  levelCowboyHat: {fileID: 0}
+  hatFoundText: {fileID: 0}
+  wrongHatText: {fileID: 0}
+  cowboyHatButton: {fileID: 0}
+  cowboyHatLocked: {fileID: 0}

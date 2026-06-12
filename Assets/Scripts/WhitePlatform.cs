@@ -13,7 +13,7 @@ public class WhitePlatform : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            playerColor.GetSpriteRenderer().color = new Color(255, 255, 255);
+            playerColor.GetSpriteRenderer().color = Color.white;
         }        
     }
 }
