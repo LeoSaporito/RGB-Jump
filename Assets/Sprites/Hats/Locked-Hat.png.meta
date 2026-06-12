@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9d45452ad51e6f04483ca0e55e0853c6
+guid: 5203f93d9c12e154a8027bad07567966
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2557960095235725270
-    second: Player-Red_0
+      213: -6685984043965852613
+    second: Locked-Hat_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player-Red_0
+      name: Locked-Hat_0
       rect:
         serializedVersion: 2
         x: 0
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a28a9d598dc408cd0800000000000000
-      internalID: -2557960095235725270
+      spriteID: b345c759fec9633a0800000000000000
+      internalID: -6685984043965852613
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Player-Red_0: -2557960095235725270
+      Locked-Hat_0: -6685984043965852613
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -5,9 +5,10 @@ using System;
 using UnityEngine.SceneManagement;
 public class GameSession : MonoBehaviour
 {
-    [SerializeField] int numOfLives = 3;
-    [SerializeField] TextMeshProUGUI livesText;
+    //[SerializeField] int numOfLives = 3;
+    //[SerializeField] TextMeshProUGUI livesText;
     [SerializeField] int currentSceneIndex;
+    [SerializeField] TextMeshProUGUI levelsText;
 
     private void Awake()
     {
@@ -24,32 +25,41 @@ public class GameSession : MonoBehaviour
     }
     private void Start()
     {
-        livesText.text = "Lives: " + numOfLives;
+        //livesText.text = "Lives: " + numOfLives;
+        currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        levelsText.text = "Level: " + currentSceneIndex;
     }
 
     public void PlayerDeath()
     {
-        if (numOfLives > 1)
-        { 
-            TakeLife();
-        }
-        else
-        {
-            SceneManager.LoadScene("GameOver");
-            ResetGameSession();
-        }
+        ReloadScene();
+
+        //if (numOfLives > 1)
+        //{ 
+        //    TakeLife();
+        //}
+        //else
+        //{
+        //    SceneManager.LoadScene("GameOver");
+        //    ResetGameSession();
+        //}
+    }
+    void ReloadScene()
+    {
+        string currentScene = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(currentScene);
     }
     void TakeLife()
     {        
-        numOfLives--;        
+        //numOfLives--;        
 
-        string currentScene = SceneManager.GetActiveScene().name;
-        SceneManager.LoadScene(currentScene);
-        livesText.text = "Lives: " + numOfLives;        
+        //string currentScene = SceneManager.GetActiveScene().name;
+        //SceneManager.LoadScene(currentScene);
+        //livesText.text = "Lives: " + numOfLives;        
     }
     private void ResetGameSession()
     {
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 
     public void LoadNextLevel()
@@ -57,5 +67,6 @@ public class GameSession : MonoBehaviour
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         currentSceneIndex++;
         SceneManager.LoadScene(currentSceneIndex);
+        levelsText.text = "Level: " + currentSceneIndex;
     }
 }

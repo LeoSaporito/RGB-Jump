@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 43a5322de232c2f45bf8743ba9371170
+guid: 454e0147a4a614145b270179259cbdbc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6623821920708436664
-    second: Player-White 1_0
+      213: 2326690740746421850
+    second: Cowboy-Hat_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player-White 1_0
+      name: Cowboy-Hat_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 7
-        height: 9
+        width: 8
+        height: 7
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8b2a54f31fa8ceb50800000000000000
-      internalID: 6623821920708436664
+      spriteID: a568160c6e01a4020800000000000000
+      internalID: 2326690740746421850
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Player-White 1_0: 6623821920708436664
+      Cowboy-Hat_0: 2326690740746421850
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

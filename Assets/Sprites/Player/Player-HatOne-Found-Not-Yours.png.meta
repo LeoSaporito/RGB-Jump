@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4e5a2da531f1fd9499d0fa9963730a3a
+guid: fee9daff4dd80fe4c9c5093df8db9b0c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6013356386217403091
-    second: Player-Green_0
+      213: -1818206008291929930
+    second: Player-HatOne-Found-Not-Yours_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player-Green_0
+      name: Player-HatOne-Found-Not-Yours_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 8
-        height: 8
+        height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d2d5fa31a344c8ca0800000000000000
-      internalID: -6013356386217403091
+      spriteID: 6b0574bc44f64c6e0800000000000000
+      internalID: -1818206008291929930
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Player-Green_0: -6013356386217403091
+      Player-HatOne-Found-Not-Yours_0: -1818206008291929930
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
