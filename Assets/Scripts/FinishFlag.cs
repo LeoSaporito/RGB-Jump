@@ -13,6 +13,9 @@ public class FinishFlag : MonoBehaviour
     [SerializeField] GameObject hatFoundText;
     [SerializeField] GameObject wrongHatText;
 
+    [SerializeField] GameObject lockedUI;
+    [SerializeField] GameObject unlockedUI;
+
     Coroutine cowboyHatFoundCoroutine;
 
     bool isHatAnimation;
@@ -31,13 +34,15 @@ public class FinishFlag : MonoBehaviour
             }
             else
             {
-                FindAnyObjectByType<GameSession>().LoadNextLevel();
+                FindAnyObjectByType<LevelManager>().LoadNextLevel();
             }          
         }
     }
     void PlayerWearingCowboyHat()
     {
         isHatAnimation = true;
+        unlockedUI.SetActive(true);
+        lockedUI.SetActive(false);
         playerCowboyHat.SetActive(true);
         levelCowboyHat.SetActive(false);
     }
@@ -51,7 +56,7 @@ public class FinishFlag : MonoBehaviour
         playerAnimator.SetBool("wrongHat", true);
         yield return new WaitForSeconds(delay);
 
-        FindAnyObjectByType<GameSession>().LoadNextLevel();
+        FindAnyObjectByType<LevelManager>().LoadNextLevel();
     }
     public bool GetIsHatAnimationBool() { return isHatAnimation; }
 }

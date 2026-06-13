@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7268976103468433117}
   - component: {fileID: 6625342608762092743}
   - component: {fileID: 6038286135216284670}
+  - component: {fileID: 6685398232376581780}
   m_Layer: 0
   m_Name: Finish Flag
   m_TagString: Flag
@@ -151,12 +152,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e6e1154c8e7a34fbdecb01800b0d7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FinishFlag
-  hatLevel: 1
+  hatLevel: 0
   delay: 2
   playerAnimator: {fileID: 0}
   playerCowboyHat: {fileID: 0}
   levelCowboyHat: {fileID: 0}
   hatFoundText: {fileID: 0}
   wrongHatText: {fileID: 0}
-  cowboyHatButton: {fileID: 0}
-  cowboyHatLocked: {fileID: 0}
+--- !u!114 &6685398232376581780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5498605651043893257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04e23a5f60b0f724286d612e7bc0eb7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevelManager

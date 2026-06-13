@@ -87,6 +87,6 @@ public class PlayerMovement : MonoBehaviour
         rb.linearVelocity = new Vector2(0f, knockBack);
         isAlive = false;
         a.SetBool("isAlive", false);
-        FindAnyObjectByType<GameSession>().PlayerDeath();
+        FindAnyObjectByType<LevelManager>().PlayerDeath();
     }
 }
