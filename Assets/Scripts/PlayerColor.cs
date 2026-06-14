@@ -4,9 +4,9 @@ using UnityEngine.InputSystem;
 
 public class PlayerColor : MonoBehaviour
 {
-    bool isRed;
-    bool isGreen;
-    bool isBlue;
+    [SerializeField] bool isRed;
+    [SerializeField] bool isGreen;
+    [SerializeField] bool isBlue;
 
     SpriteRenderer sr;
 

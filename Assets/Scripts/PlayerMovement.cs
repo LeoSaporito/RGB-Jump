@@ -6,26 +6,32 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float moveSpeed;
-    [SerializeField] float jumpForce;
-    
+    [SerializeField] float jumpForce;    
     [SerializeField] float knockBack;
+    [SerializeField] float wallClimbGravity = 0f;
+    [SerializeField] float normalGravity = 6f;
 
     Rigidbody2D rb;
     Animator a;
+    CapsuleCollider2D cc;
+    BoxCollider2D bc;
     Vector2 directionalInput;
 
-    bool isGrounded;
-    bool doubleJump;
-
+    [SerializeField] bool isGrounded;
+    [SerializeField] bool doubleJump;
     bool isAlive;
 
+    bool isOnOrangePlatform;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        cc = GetComponent<CapsuleCollider2D>();
+        bc = GetComponent<BoxCollider2D>();
         a = GetComponent<Animator>();
-        
+
         isAlive = true;
+        isOnOrangePlatform = false;
 
         a.SetBool("isAlive", true);
     }
@@ -45,6 +51,18 @@ public class PlayerMovement : MonoBehaviour
         {
             isGrounded = true;
             doubleJump = true;
+        }
+
+        if (bc.IsTouchingLayers(LayerMask.GetMask("Orange")))
+        {
+            isOnOrangePlatform = true;
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (!bc.IsTouchingLayers(LayerMask.GetMask("Orange")))
+        {
+            isOnOrangePlatform = false;
         }
     }
     void OnMove(InputValue value)
@@ -69,9 +87,16 @@ public class PlayerMovement : MonoBehaviour
     }
     void Movement()
     {
-        Vector2 playerVelocity = new Vector2(moveSpeed * directionalInput.x, rb.linearVelocity.y);
-
-        rb.linearVelocity = playerVelocity;
+        if (!isOnOrangePlatform)
+        {
+            rb.linearVelocity = new Vector2(moveSpeed * directionalInput.x, rb.linearVelocity.y);
+            rb.gravityScale = normalGravity;
+        }
+        else if(isOnOrangePlatform)
+        {
+            rb.gravityScale = wallClimbGravity;
+            rb.linearVelocity = new Vector2(moveSpeed * directionalInput.x, moveSpeed * directionalInput.y);
+        }
     }
     void FlipDirection()
     {
@@ -89,4 +114,7 @@ public class PlayerMovement : MonoBehaviour
         a.SetBool("isAlive", false);
         FindAnyObjectByType<LevelManager>().PlayerDeath();
     }
+
+    public Rigidbody2D GetPlayerRigidbody() { return rb; }
+    public float GetPlayerMoveSpeed() { return moveSpeed; }
 }

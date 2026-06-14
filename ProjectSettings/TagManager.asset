@@ -18,7 +18,7 @@ TagManager:
   - Green
   - White
   - Hazards
-  - 
+  - Orange
   - 
   - 
   - 
@@ -45,6 +45,12 @@ TagManager:
     locked: 0
   - name: Hazards
     uniqueID: 469304365
+    locked: 0
+  - name: Inactive Platforms
+    uniqueID: 3540263801
+    locked: 0
+  - name: Walls
+    uniqueID: 3563893607
     locked: 0
   - name: Platforms
     uniqueID: 3983634133

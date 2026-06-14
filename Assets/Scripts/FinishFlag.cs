@@ -8,17 +8,17 @@ public class FinishFlag : MonoBehaviour
     [SerializeField] bool hatLevel;
     [SerializeField] float delay;
     [SerializeField] Animator playerAnimator;
-    [SerializeField] GameObject playerCowboyHat;
-    [SerializeField] GameObject levelCowboyHat;
+    [SerializeField] GameObject playerHat;
+    [SerializeField] GameObject levelHat;
     [SerializeField] GameObject hatFoundText;
     [SerializeField] GameObject wrongHatText;
 
     [SerializeField] GameObject lockedUI;
     [SerializeField] GameObject unlockedUI;
 
-    Coroutine cowboyHatFoundCoroutine;
+    Coroutine hatFoundCoroutine;
 
-    bool isHatAnimation;
+    public bool isHatAnimation;
     private void Start()
     {
         isHatAnimation = false;
@@ -27,29 +27,29 @@ public class FinishFlag : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            if (cowboyHatFoundCoroutine == null && hatLevel)
+            if (hatFoundCoroutine == null && hatLevel)
             {
-                PlayerWearingCowboyHat();
-                cowboyHatFoundCoroutine = StartCoroutine(CowboyHatFound());
+                PlayerWearingHat();
+                hatFoundCoroutine = StartCoroutine(HatFound());
             }
-            else
+            else if(!hatLevel)
             {
                 FindAnyObjectByType<LevelManager>().LoadNextLevel();
             }          
         }
     }
-    void PlayerWearingCowboyHat()
+    void PlayerWearingHat()
     {
         isHatAnimation = true;
         unlockedUI.SetActive(true);
         lockedUI.SetActive(false);
-        playerCowboyHat.SetActive(true);
-        levelCowboyHat.SetActive(false);
+        playerHat.SetActive(true);
+        levelHat.SetActive(false);
     }
-    IEnumerator CowboyHatFound()
+    IEnumerator HatFound()
     {
         hatFoundText.SetActive(true);
-        playerAnimator.SetBool("foundCowboyHat", true);
+        playerAnimator.SetBool("foundHat", true);
         yield return new WaitForSeconds(delay);
 
         wrongHatText.SetActive(true);
