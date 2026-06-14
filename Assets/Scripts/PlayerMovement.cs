@@ -39,9 +39,14 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         if (!isAlive) { return; }
-        if (FindAnyObjectByType<FinishFlag>().GetIsHatAnimationBool()) { return; }
+        if (FindAnyObjectByType<FinishFlag>()) 
+        {
+            FindAnyObjectByType<FinishFlag>().GetIsHatAnimationBool();
+            return; 
+        }
+        else if(FindAnyObjectByType<FinishFlagFinalLevel>().GetIsDialogueStartedBool()) { return; }
 
-        Movement();
+            Movement();
         FlipDirection();
     }
 
